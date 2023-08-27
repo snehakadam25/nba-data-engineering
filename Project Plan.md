@@ -38,7 +38,7 @@ How are we going to get data flowing from source to serving? What components and
   Upsert load 
 - What data transformation patterns are you going to be performing?
   Aggregations of data, flattening data, filtering and re-naming columns
-
+![](2023-08-26-20-29-09.png)
 
 
 ## Breakdown of tasks 
