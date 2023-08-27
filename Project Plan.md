@@ -32,8 +32,6 @@ Players (https://api-sports.io/documentation/nba/v2#tag/Players)
 ## Solution architecture
 How are we going to get data flowing from source to serving? What components and services will we combine to implement the solution? How do we automate the entire running of the solution? 
 
-
-
 - What data extraction patterns are you going to be using?
   Incremental extract
 - What data loading patterns are you going to be using?
