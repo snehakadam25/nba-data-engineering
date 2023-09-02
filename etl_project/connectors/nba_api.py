@@ -11,24 +11,22 @@ class NBAApiClient:
             raise Exception("API key cannot be set to None.")
         self.api_key = api_key
 
-    def get_games(self, league: str, date: str, season: int) -> list[dict]:
+    def get_games(self, league: str, season: int) -> list[dict]:
         """
-        Get the games data for an indicated league on a specific date. 
+        Get the games data for an indicated league in a specific season. 
 
         Args: 
             league: the league for which games data will be requested, possible values are: "africa" "orlando" "sacramento" "standard" "utah" "vegas"
-            date: date in YYYY-MM-DD format
             season: the season the game was played in in YYYY format
 
         Returns: 
-            A list of games for a given league on the given date in the given season
+            A list of games for a given league in the given season
         
         Raises:
             Exception if response code is not 200. 
         """
         url = f"{self.base_url}/games/"
         params = {
-            "date": date,
             "league": league,
             "season": season
         }
@@ -37,8 +35,8 @@ class NBAApiClient:
             "x-rapidapi-host": self.rapidapi_host
         }
         response = requests.get(url=url, params=params, headers=headers)
-        if response.status_code == 200 and response.json() is not None: 
-            return response.json()["response"]
+        if response.status_code == 200 and response.json().get("response") is not None: 
+            return response.json().get("response")
         else: 
             raise Exception(f"Failed to extract data from NBA API. Status Code: {response.status_code}. Response: {response.text}")
         
@@ -64,8 +62,8 @@ class NBAApiClient:
             "x-rapidapi-host": self.rapidapi_host
         }
         response = requests.get(url=url, params=params, headers=headers)
-        if response.status_code == 200 and response.json() is not None: 
-            return response.json()["response"]
+        if response.status_code == 200 and response.json().get("response"): 
+            return response.json().get("response")
         else: 
             raise Exception(f"Failed to extract data from NBA API. Status Code: {response.status_code}. Response: {response.text}")
     
@@ -93,8 +91,8 @@ class NBAApiClient:
             "x-rapidapi-host": self.rapidapi_host
         }
         response = requests.get(url=url, params=params, headers=headers)
-        if response.status_code == 200 and response.json() is not None: 
-            return response.json()["response"]
+        if response.status_code == 200 and response.json().get("response") is not None: 
+            return response.json().get("response")
         else: 
             raise Exception(f"Failed to extract data from NBA API. Status Code: {response.status_code}. Response: {response.text}")
         
@@ -121,8 +119,8 @@ class NBAApiClient:
             "x-rapidapi-host": self.rapidapi_host
         }
         response = requests.get(url=url, params=params, headers=headers)
-        if response.status_code == 200 and response.json() is not None: 
-            return response.json()["response"]
+        if response.status_code == 200 and response.json().get("response") is not None: 
+            return response.json().get("response")
         else: 
             raise Exception(f"Failed to extract data from NBA API. Status Code: {response.status_code}. Response: {response.text}")
         
@@ -151,8 +149,8 @@ class NBAApiClient:
             "x-rapidapi-host": self.rapidapi_host
         }
         response = requests.get(url=url, params=params, headers=headers)
-        if response.status_code == 200 and response.json() is not None: 
-            return response.json()["response"]
+        if response.status_code == 200 and response.json().get("response") is not None: 
+            return response.json().get("response")
         else: 
             raise Exception(f"Failed to extract data from NBA API. Status Code: {response.status_code}. Response: {response.text}")
 
