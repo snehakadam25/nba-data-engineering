@@ -90,6 +90,12 @@ def extract_games(
 
     return df
 
+def create_key_player(
+        row
+    ):
+    return str(row["player_id"])+row["league"]+str(row["season"])
+
+
 def transform_player_statistics(
         df_players:pd.DataFrame, 
         df_players_statistics:pd.DataFrame
@@ -127,13 +133,17 @@ def transform_player_statistics(
     df_player_summary['birth_date']= pd.to_datetime(df_player_summary['birth_date']).dt.date
     df_player_summary["current_age"] = df_player_summary['birth_date'].apply(calculate_age)
 
-    df = df_player_summary.groupby(['player_id','height_meters','weight_kilograms','birth_date','jersey_number','season','league','first_name'\
-        ,'last_name','team_id','team_name','position','current_age'], as_index=False).sum("points")
+    df = df_player_summary.groupby(['player_id','birth_date','jersey_number','season','league','first_name'\
+        ,'last_name','team_id','position','current_age'], as_index=False).sum("points")
     
-    df = df.astype({'jersey_number':'int','current_age':'int','points':int})
-
     df.drop_duplicates(subset=['player_id'], keep='first')
     
+    df = df.astype({'jersey_number':'int','current_age':'int','points':int})
+    
+    df["player_table_id"] = df.apply(lambda row: create_key_player(row), axis=1)
+    
+    df.drop_duplicates(subset=['player_table_id'], keep='first')
+
     return df
 
 def get_winner_id(
@@ -177,6 +187,11 @@ def transform_games(
 
     return df_games_renamed
 
+def create_key_team(
+        row
+    ):
+    return str(row["team_id"])+row["league"]+str(row["season"])
+
 def transform_standings(
         df_standings:pd.DataFrame
     )->pd.DataFrame:
@@ -195,6 +210,8 @@ def transform_standings(
         "loss.total": "loss_total"
 
     })
+
+    df_standings_renamed["standings_table_id"] = df_standings_renamed.apply(lambda row: create_key_team(row), axis=1)
 
     return df_standings_renamed
 
