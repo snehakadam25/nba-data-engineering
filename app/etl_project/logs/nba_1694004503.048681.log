@@ -1,0 +1,11 @@
+2023-09-06 08:48:23,722 - nba - INFO - Starting pipeline run
+2023-09-06 08:48:23,722 - nba - INFO - Getting pipeline environment variables
+2023-09-06 08:48:23,722 - nba - INFO - Creating NBA API client
+2023-09-06 08:48:23,723 - nba - INFO - Extracting data from NBA API client
+2023-09-06 08:48:23,723 - nba - INFO - Extracting games data from NBA API client
+2023-09-06 08:48:25,132 - nba - INFO - Extracting players data from NBA API client
+2023-09-06 08:49:13,396 - nba - INFO - Extracting players statistics data from NBA API client
+2023-09-06 08:50:20,432 - nba - INFO - Extracting standings data from NBA API client
+2023-09-06 08:50:21,293 - nba - INFO - Transforming games df
+2023-09-06 08:50:21,385 - nba - INFO - Transforming players statistics
+2023-09-06 08:50:21,503 - nba - INFO - Pipeline run failed. Error message: 'team_name'
