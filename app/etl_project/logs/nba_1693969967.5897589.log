@@ -1,0 +1,8 @@
+2023-09-05 23:12:47,981 - nba - INFO - Starting pipeline run
+2023-09-05 23:12:47,981 - nba - ERROR - Failed to extract games data from NBA API. Error: name 'nba_api_client' is not defined
+2023-09-05 23:13:47,997 - nba - INFO - Getting pipeline environment variables
+2023-09-05 23:13:47,999 - nba - INFO - Creating NBA API client
+2023-09-05 23:13:48,000 - nba - INFO - Extracting data from NBA API client
+2023-09-05 23:13:48,000 - nba - INFO - Extracting games data from NBA API client
+2023-09-05 23:13:51,544 - nba - INFO - Extracting players data from NBA API client
+2023-09-05 23:13:53,734 - nba - INFO - Pipeline run failed. Error message: Failed to extract data from NBA API. Status Code: 200. Response: {"get":"teams","parameters":{"league":"standard"},"errors":{"requests":"You have reached the request limit for the day, Go to https:\/\/dashboard.api-football.com to upgrade your plan."},"results":0,"paging":{"current":1,"total":1},"response":[]}

@@ -1,0 +1,8 @@
+2023-09-05 22:10:07,722 - nba - INFO - Starting pipeline run
+2023-09-05 22:10:07,731 - nba - INFO - Getting pipeline environment variables
+2023-09-05 22:10:07,732 - nba - INFO - Creating NBA API client
+2023-09-05 22:10:07,732 - nba - INFO - Extracting data from NBA API client
+2023-09-05 22:10:07,733 - nba - INFO - Extracting games data from NBA API client
+2023-09-05 22:10:10,054 - nba - INFO - Extracting players data from NBA API client
+2023-09-05 22:11:12,065 - nba - INFO - Extracting players statistics data from NBA API client
+2023-09-05 22:11:13,944 - nba - INFO - Pipeline run failed. Error message: {e}

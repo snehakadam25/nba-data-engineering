@@ -1,0 +1,15 @@
+2023-09-06 11:10:28,740 - nba - INFO - Starting pipeline run
+2023-09-06 11:10:28,756 - nba - INFO - Getting pipeline environment variables
+2023-09-06 11:10:28,756 - nba - INFO - Creating NBA API client
+2023-09-06 11:10:28,756 - nba - INFO - Extracting data from NBA API client
+2023-09-06 11:10:28,756 - nba - INFO - Extracting games data from NBA API client
+2023-09-06 11:10:30,462 - nba - INFO - Extracting players data from NBA API client
+2023-09-06 11:11:22,031 - nba - INFO - Extracting players statistics data from NBA API client
+2023-09-06 11:12:27,461 - nba - INFO - Extracting standings data from NBA API client
+2023-09-06 11:12:28,264 - nba - INFO - Transforming games df
+2023-09-06 11:12:28,335 - nba - INFO - Transforming players statistics
+2023-09-06 11:12:28,624 - nba - INFO - Transforming standings
+2023-09-06 11:12:28,628 - nba - INFO - Loading data to postgres
+2023-09-06 11:12:28,629 - nba - INFO - Loading games data to postgres
+2023-09-06 11:12:29,288 - nba - INFO - Loading standings data to postgres
+2023-09-06 11:12:29,306 - nba - INFO - Loading players statistics data to postgres

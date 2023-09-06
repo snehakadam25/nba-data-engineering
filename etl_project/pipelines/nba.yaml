@@ -1,5 +1,0 @@
-name: nba
-config: 
-  season: 2022
-  league: "standard"
-  log_folder_path: "./etl_project/logs"
