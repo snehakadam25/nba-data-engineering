@@ -97,8 +97,8 @@ if __name__ == "__main__":
         table_games = Table(
             "games", metadata, 
             Column("game_id", Integer, primary_key=True),
-            Column("league", String, primary_key=True),
-            Column("season", String, primary_key=True),
+            Column("league", String),
+            Column("season", Integer),
             Column("date", Date),
             Column("home_team_id", Integer),
             Column("home_team_name", String),
@@ -121,16 +121,17 @@ if __name__ == "__main__":
         
         table_standings = Table(
             "standings", metadata, 
-            Column("team_id", Integer, primary_key=True),
-            Column("team_name", String, primary_key=True),
-            Column("league", String, primary_key=True),
-            Column("season", String, primary_key=True),
+            Column("team_id", Integer),
+            Column("team_name", String),
+            Column("league", String),
+            Column("season", Integer),
             Column("conference_name", String),
             Column("conference_rank", Integer),
             Column("division_name", String),
             Column("division_rank", Integer),
             Column("win_total", Integer),
-            Column("loss_total", String)
+            Column("loss_total", Integer),
+            Column("standings_table_id", String, primary_key=True)
         )
         load(
             df=df_standings_transformed,
@@ -140,9 +141,33 @@ if __name__ == "__main__":
             load_method="upsert"
         )
 
+        pipeline_logging.logger.info("Loading players statistics data to postgres")
+        table_players_statistics = Table(
+            "players_statistics", metadata,
+            Column("player_id", Integer),
+            Column("birth_date", Date),
+            Column("jersey_number", Integer),
+            Column("season", Integer),
+            Column("league", String),
+            Column("first_name", String),
+            Column("last_name", String),
+            Column("team_id", Integer),
+            Column("position", String),
+            Column("current_age", Integer),
+            Column("points", Integer),
+            Column("player_table_id", String)
+        )
+        load(
+            df=df_players_statistics_transformed,
+            postgresql_client=postgresql_client, 
+            table=table_players_statistics, 
+            metadata=metadata,
+            load_method="overwrite"
+        )
+
         metadata_logger.log(status=MetaDataLoggingStatus.RUN_SUCCESS, logs=pipeline_logging.get_logs()) # log end
         pipeline_logging.logger.handlers.clear()
     except BaseException as e:
-        pipeline_logging.logger.info("Pipeline run failed. Error message: {e}")
+        pipeline_logging.logger.error(f"Pipeline run failed. See detailed logs: {e}")
         metadata_logger.log(status=MetaDataLoggingStatus.RUN_FAILURE, logs=pipeline_logging.get_logs()) # log error
         pipeline_logging.logger.handlers.clear()
