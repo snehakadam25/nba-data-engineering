@@ -1,8 +1,0 @@
-2023-09-05 23:01:06,329 - nba - INFO - Starting pipeline run
-2023-09-05 23:01:06,335 - nba - INFO - Getting pipeline environment variables
-2023-09-05 23:01:06,336 - nba - INFO - Creating NBA API client
-2023-09-05 23:01:06,337 - nba - INFO - Extracting data from NBA API client
-2023-09-05 23:01:06,337 - nba - INFO - Extracting games data from NBA API client
-2023-09-05 23:01:08,501 - nba - INFO - Extracting players data from NBA API client
-2023-09-05 23:02:11,920 - nba - INFO - Extracting players statistics data from NBA API client
-2023-09-05 23:02:13,031 - nba - INFO - Pipeline run failed. Error message: Failed to extract data from NBA API. Status Code: 200. Response: {"get":"teams","parameters":{"league":"standard"},"errors":{"rateLimit":"Too many requests. Your rate limit is 10 requests per minute."},"results":0,"paging":{"current":1,"total":1},"response":[]}
