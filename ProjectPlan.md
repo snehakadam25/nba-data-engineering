@@ -38,7 +38,24 @@ How are we going to get data flowing from source to serving? What components and
   Upsert load 
 - What data transformation patterns are you going to be performing?
   Aggregations of data, flattening data, filtering and re-naming columns
-![](2023-08-26-20-29-09.png)
+![](Project_Architecture.png)
+
+There are four stages in our solution architecture. In the real-world we would have a BI-Solution like PBI/Tableau/Qliview etc as a presentation layer. However since our audience/Customers are Data Scientists and/or data analysts we have provided final solution in postgres database where users can query the data using SQL.
+#### 1. Source
+- We extract data from from an API
+- Use python programing language for api requests
+- We use git as a source
+#### 2. Ingestion
+- ETL Pipeline is a Python module
+- This pipline is containarized using Dokcer containers
+- Docker Container is deployed to AWS ECR
+- This ECR image is utilized inside an ECS cluster
+- On the ECS Cluster we run scheduled task once every 24 hour to run the pipeline
+#### 3. Storage
+ - The NBA data is stored on AWS hosted postgres RDS
+ #### 4. Serving
+ - Users can query the data using sql on AWS RDS
+We do not have to mention this but just as a note to ourselves - Our intial plan was to perform an ELT ut we ended up doing an ETL process. So now we have only one db called nba.
 
 
 ## Breakdown of tasks 
