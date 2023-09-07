@@ -1,6 +1,6 @@
 ## OBJECTIVES
 Extract datasets from API-NBA to create a database with basketball data that can be used for analysis
-Practice ETL techniques and concepts learned in class
+Practice ETL techniques and concepts learned in class. For Details About the Overall Idea behind the project please refer [Project Plan](Project Plan.md)
 ## GOALS
 Answer questions such as:
 What’s the average age of top 10 scoring players?
